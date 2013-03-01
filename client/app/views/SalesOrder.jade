@@ -1,0 +1,49 @@
+h1 Sales Order
+section.css-table#sectionsalesorder
+    section.two-column
+        section.cell
+            label #{a} is #{b} plus #{c}
+    section.two-column
+        section.cell
+        div
+            label Id:
+            input(id='salesorderid', data-bind='value:id')
+        div
+            label Customer:
+            input( data-bind='value:CustomerName')
+        div
+            label Total:
+            label( data-bind='text:Total')
+        div
+            input(type='button', value='Add Line', data-bind='click: AddLine')
+        div
+            input(type='button', value='Get Items', data-bind='click: GetItems, visible:false')
+    table
+        thead
+            th Id
+            th Item
+            th Rate
+            th Amount
+            th Total
+        tbody(data-bind='foreach: SalesOrderLines')
+            tr
+                td
+                    input(data-bind='value:id')
+                td
+                    input(data-bind='value:Item')
+                td
+                    input(data-bind='value:Rate')
+                td
+                    input(data-bind='value:Amount')
+                td
+                    input(data-bind='value:Total')
+    div
+        input(type='button', value='Create', data-bind='click: Create')
+        input(type='button', value='Update', data-bind='click: Update')
+    div
+        label(data-bind='text:Error, style:{color:"red"}')
+
+script(type='text/javascript', src='/scripts/jquery-1.4.4.min.js' )
+script(type='text/javascript', src='/scripts/knockout.js' )
+script(src='http://localhost:3000/socket.io/socket.io.js', type='text/javascript')
+script(type='text/javascript', src='/scripts/salesorder.js' )

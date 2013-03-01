@@ -1,0 +1,18 @@
+script(type='text/javascript', src='/scripts/jquery-1.4.4.min.js' )
+script(type='text/javascript', src='/scripts/knockout.js' )
+script(type='text/javascript', src='/scripts/salesorder.js' )
+h1 Sales Order
+section.css-table#sectionsalesorderindex
+    table
+        thead
+            th Id
+            th Customer
+            th Total
+        tbody(data-bind='foreach: salesOrders')
+            tr
+                td
+                    span(data-bind="text:Id")
+                td
+                    span(data-bind="text:CustomerName")
+                td
+                    input(type="button", data-bind="click:EditClicked", value="Edit")
